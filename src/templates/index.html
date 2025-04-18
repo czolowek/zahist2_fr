@@ -15,9 +15,6 @@
             <h1>{{product.name}}</h1>
             <h2 class="h5 card-title">{{ product.price }}</h2>
             <a href="{{ url_for('get_product', product_id=product.id) }}" class="btn btn-sm btn-primary">Про товар</a>
-            
-            
-
           </div>
         </div>
       </div>
@@ -26,3 +23,50 @@
     </div>
   </main>
 {% endblock content %}
+
+<!-- Подключение JavaScript для применения стилей -->
+<script type="module">
+  import styles from '../../styles.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Применение стилей к основному контейнеру
+    const container = document.querySelector('.container');
+    if (container) {
+      Object.assign(container.style, styles.container);
+    }
+
+    // Применение стилей к карточкам
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      Object.assign(card.style, styles.card);
+
+      // Эффект наведения на карточки
+      card.addEventListener('mouseenter', () => {
+        Object.assign(card.style, styles.cardHover);
+      });
+      card.addEventListener('mouseleave', () => {
+        Object.assign(card.style, styles.card);
+      });
+    });
+
+    // Применение стилей к заголовкам
+    const headers = document.querySelectorAll('h1');
+    headers.forEach(header => {
+      Object.assign(header.style, styles.header);
+    });
+
+    // Применение стилей к кнопкам
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+      Object.assign(button.style, styles.button);
+
+      // Эффект наведения на кнопки
+      button.addEventListener('mouseenter', () => {
+        Object.assign(button.style, styles.buttonHover);
+      });
+      button.addEventListener('mouseleave', () => {
+        Object.assign(button.style, styles.button);
+      });
+    });
+  });
+</script>
