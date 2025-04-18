@@ -4,7 +4,7 @@ from src.data import data_actions
 from src.data.forms import RewiewForm
 
 app = Flask(__name__, template_folder="src/templates")
-app.secret_key = "3252"
+app.secret_key = "32523252w"
 
 @app.get("/")
 def index():
@@ -26,4 +26,4 @@ def buy_product(product_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True)
